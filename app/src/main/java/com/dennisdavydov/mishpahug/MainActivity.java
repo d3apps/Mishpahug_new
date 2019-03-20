@@ -6,6 +6,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     int number =10;
+    int anInt = 20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
