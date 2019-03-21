@@ -45,7 +45,7 @@
         android:background="@color/bg_menu_color"
         app:itemTextColor="@color/white"
         app:itemTextAppearance="@font/raleway_medium"
-       
+
         >
 
         <ImageView

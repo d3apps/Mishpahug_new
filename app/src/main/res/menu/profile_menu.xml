@@ -8,25 +8,25 @@
 
         <item
             android:id="@+id/event_list"
-            android:title="Event list"
+            android:title="      Event list"
             />
         <item
             android:id="@+id/notice"
-            android:title="Notice"/>
+            android:title="      Notice"/>
         <item
             android:id="@+id/calendar"
-            android:title="Calendar" />
+            android:title="      Calendar" />
         <item
             android:id="@+id/participation"
-            android:title="Participation" />
+            android:title="      Participation" />
         <item
             android:id="@+id/my_events_list"
-            android:title="My events list" />
+            android:title="      My events list" />
 
-        <item android:title="_________________"/>
+        <item android:title="   _________________"/>
         <item
                 android:id="@+id/logout"
-                android:title="Log out"/>
+                android:title="      Log out"/>
 
         </group>
 </menu>
