@@ -23,7 +23,7 @@
             android:id="@+id/my_events_list"
             android:title="      My events list" />
 
-        <item android:title="   _________________"/>
+        <item android:title="     _________________"/>
         <item
                 android:id="@+id/logout"
                 android:title="      Log out"/>
