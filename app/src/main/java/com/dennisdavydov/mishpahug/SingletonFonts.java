@@ -23,10 +23,10 @@ public class SingletonFonts {
         return font3;
     }
 
-    private Typeface getFont4() {
+    Typeface getFont4() {
         return font4;
     }
-    private Typeface getFont5() {
+    Typeface getFont5() {
         return font5;
     }
 
@@ -55,7 +55,7 @@ public class SingletonFonts {
 
     private SingletonFonts() {}
 
-    private static SingletonFonts getInstance(Context activity) {
+    static SingletonFonts getInstance(Context activity) {
         SingletonFonts localInstance = instance;
         if (localInstance == null) {
             synchronized (SingletonFonts.class) {
