@@ -2,13 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view"
-    android:background="@color/background"
+
     >
         <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/event_list"
-            android:title="Event list" />
+            android:title="Event list"
+            />
         <item
             android:id="@+id/notice"
             android:title="Notice"/>
