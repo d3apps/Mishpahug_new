@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/main_screen_header"
                 android:textSize="28sp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 android:textAlignment="center"
                 android:textColor="#FFEED9"
                 android:layout_marginTop="60dp"
