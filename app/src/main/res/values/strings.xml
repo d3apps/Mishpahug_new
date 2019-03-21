@@ -8,7 +8,8 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_screen_header">Shabbat in the family circle</string>
+    <string name="main_screen_text">We are looking for family where you can spend your hugs or
+    meet shabbat. Just sign in and start finding a new shabbat family.</string>
+    <string name="main_screen_text2">More than 100 families are waiting for you!</string>
 </resources>

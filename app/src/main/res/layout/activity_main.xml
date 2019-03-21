@@ -5,7 +5,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/background">
+    android:background="@drawable/bg_grad"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="90dp"
+    android:paddingBottom="90dp">
+
+    <FrameLayout
+        android:id="@+id/mainFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:background="#FFEED9">
+
+        <View
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_gravity="end"
+            android:background="#A29696"
+            />
+        <View
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom"
+            android:background="#A29696"
+            />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"
+            android:background="#342860"
+            android:padding="10dp">
+            <TextView
+                android:id="@+id/main_screen_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_screen_header"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="#FFEED9"
+                android:layout_marginTop="60dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+            <TextView
+                android:id="@+id/main_screen_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_screen_text"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:textColor="#FFEED9"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/main_screen_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+            <TextView
+                android:id="@+id/main_screen_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/main_screen_text2"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:textColor="#FFEED9"
+                app:layout_constraintTop_toBottomOf="@id/main_screen_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+            <Button
+                android:id="@+id/nextBtn"
+                android:text="Next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/main_screen_text2"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
 
 
 
