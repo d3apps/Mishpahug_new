@@ -6,24 +6,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    tools:context=".MainPage"
     tools:openDrawer="start"
-    >
+    android:background="@drawable/bg_grad">
 
-    <include
-        android:id="@+id/i"
-        layout="@layout/app_bar_main_page"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/transparent"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/white"/>
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+    </LinearLayout>
 
     <android.support.design.widget.NavigationView
-        android:background="@color/transparent"
         android:id="@+id/nav_view"
-        app:itemTextColor="@color/white"
         android:layout_width="wrap_content"
-        android:layout_height="600dp"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main_page"
-        app:menu="@menu/activity_main_page_drawer" />
+        android:layout_height="match_parent"
 
-</android.support.v4.widget.DrawerLayout>
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header_main_page"
+        app:menu="@menu/profile_menu"
+        android:background="@color/bg_menu_color"
+        app:itemTextColor="@color/white"
+        >
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/mishpahuglogo"
+            android:layout_gravity="bottom"/>
+    </android.support.design.widget.NavigationView>
+
+    </android.support.v4.widget.DrawerLayout>
