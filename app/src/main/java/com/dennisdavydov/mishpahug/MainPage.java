@@ -13,8 +13,7 @@ import android.support.v7.widget.Toolbar;
 
 import android.view.MenuItem;
 
-public class MainPage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +21,6 @@ public class MainPage extends AppCompatActivity
         setContentView(R.layout.activity_main_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         DrawerLayout drawer =findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -33,11 +30,6 @@ public class MainPage extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        //navigationView.setItemTextAppearance();
-
-
-
-
     }
 
     @Override
@@ -46,10 +38,14 @@ public class MainPage extends AppCompatActivity
     }
 
 
-
-
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.event_list:
+
+        }
+
+
 
 
         return true;
