@@ -1,4 +1,4 @@
-package com.dennisdavydov.mishpahug;
+package com.dennisdavydov.mishpahug.singletons;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -10,20 +10,20 @@ public class SingletonFonts {
     private static Typeface font4;
     private static Typeface font5;
 
-    private Typeface getFont1() {
+    public Typeface getFont1() {
         return font1;
     }
-    private  Typeface getFont2() {
+    public Typeface getFont2() {
         return font2;
     }
-    private Typeface getFont3() {
+    public Typeface getFont3() {
         return font3;
     }
 
-    Typeface getFont4() {
+    public Typeface getFont4() {
         return font4;
     }
-    Typeface getFont5() {
+    public Typeface getFont5() {
         return font5;
     }
 
@@ -46,7 +46,7 @@ public class SingletonFonts {
     private static volatile SingletonFonts instance;
     private SingletonFonts() {}
 
-    static SingletonFonts getInstance(Context activity) {
+    public static SingletonFonts getInstance(Context activity) {
         SingletonFonts localInstance = instance;
         if (localInstance == null) {
             synchronized (SingletonFonts.class) {
