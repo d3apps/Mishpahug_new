@@ -1,6 +1,5 @@
 package com.dennisdavydov.mishpahug;
 
-
 import android.content.Context;
 import android.graphics.Typeface;
 
@@ -14,11 +13,9 @@ public class SingletonFonts {
     private Typeface getFont1() {
         return font1;
     }
-
     private  Typeface getFont2() {
         return font2;
     }
-
     private Typeface getFont3() {
         return font3;
     }
@@ -34,25 +31,19 @@ public class SingletonFonts {
     private static void setFont1(Typeface font1) {
         SingletonFonts.font1 = font1;
     }
-
     private static void setFont2(Typeface font2) {
         SingletonFonts.font2 = font2;
     }
-
     private static void setFont3(Typeface font3) {
         SingletonFonts.font3 = font3;
     }
-
     private static void setFont4(Typeface font4) {
         SingletonFonts.font4 = font4;
     }
-
     private static void setFont5(Typeface font5) {
         SingletonFonts.font5 = font5;
     }
-
     private static volatile SingletonFonts instance;
-
     private SingletonFonts() {}
 
     static SingletonFonts getInstance(Context activity) {
@@ -74,13 +65,7 @@ public class SingletonFonts {
                     "fonts/raleway_regular.ttf"));
             setFont5(Typeface.createFromAsset(activity.getAssets(),
                     "fonts/raleway_semibold.ttf"));
-
-
-
-
         }
         return localInstance;
     }
-
-
 }
