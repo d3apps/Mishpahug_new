@@ -13,6 +13,14 @@
     meet shabbat. Just sign in and start finding a new shabbat family.</string>
     <string name="main_screen_text2">More than 100 families are waiting for you!</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registration">Registration</string>
+    <string name="first_name">Enter your first name here</string>
+    <string name="last_name">Enter your last name here</string>
+    <string name="change_name">Change name</string>
+    <string name="family">Family</string>
+    <string name="guest">Guest</string>
+    <string name="email">Enter your E-mail here</string>
+    <string name="phone">Enter your phone number here</string>
+    <string name="password">Enter your password here</string>
+    <string name="register">Register</string>
 </resources>
