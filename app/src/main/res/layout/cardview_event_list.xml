@@ -8,19 +8,19 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
     cardview:cardCornerRadius="4dp">
-
     <ImageView
+        android:id="@+id/familyImage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:src="@mipmap/family" />
     <RelativeLayout
+        android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:background="@color/bg_menu_color"
-        android:layout_marginTop="110dp">
-
+        android:layout_marginTop="140dp">
         <TextView
             android:id="@+id/familyName"
             android:layout_width="wrap_content"
@@ -29,7 +29,6 @@
             android:textColor="@color/white"
             android:paddingLeft="15dp"
             android:fontFamily="@font/raleway_medium"/>
-
         <TextView
             android:id="@+id/nameOfDate"
             android:layout_width="wrap_content"
@@ -38,8 +37,7 @@
             android:textColor="@color/white"
             android:layout_below="@id/familyName"
             android:paddingLeft="15dp"
-            android:fontFamily="@font/raleway_medium"
-            />
+            android:fontFamily="@font/raleway_medium" />
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
@@ -49,10 +47,5 @@
             android:layout_below="@id/nameOfDate"
             android:paddingLeft="15dp"
             android:fontFamily="@font/raleway_medium"/>
-
-
     </RelativeLayout>
-
-
-
 </android.support.v7.widget.CardView>
