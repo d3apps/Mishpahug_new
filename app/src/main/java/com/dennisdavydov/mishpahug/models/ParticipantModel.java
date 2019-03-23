@@ -43,10 +43,6 @@ public class ParticipantModel {
     @Expose
     private Boolean isInvited;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public ParticipantModel() {
     }
 

@@ -38,14 +38,16 @@ public class EventModel {
     @SerializedName("status")
     @Expose
     private String status;
+
+   // @SerializedName("pictureLink")
+   // @Expose
+   // private String pictureLink;
+
+
     @SerializedName("participants")
     @Expose
     private List<ParticipantModel> participants = null;
 
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public EventModel() {
     }
 
