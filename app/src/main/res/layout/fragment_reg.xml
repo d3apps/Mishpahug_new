@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.RegFragment"
-    android:background="#342860"
+    android:background="@color/mhDarkColor"
     android:id="@+id/regFragConstrLayout">
 
     <ImageView
@@ -15,56 +15,52 @@
         android:src="@mipmap/no_avatar_boy"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="60dp"
-        android:layout_marginStart="30dp"/>
+        />
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tilFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/avatarImage"
+        app:layout_constraintTop_toBottomOf="@id/avatarImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="30dp">
+        app:layout_constraintBottom_toTopOf="@id/tilLastName"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColorHint="@color/mhLightColor"
+        >
     <EditText
         android:id="@+id/editFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/first_name"
-        android:textColorHint="#FFEED9"
-        android:textColor="#FFEED9"/>
+        android:textColor="@color/mhLightColor"/>
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tilLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/tilFirstName"
-        app:layout_constraintStart_toEndOf="@id/avatarImage"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="30dp">
+        app:layout_constraintBottom_toTopOf="@id/radioGroup"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColorHint="@color/mhLightColor"
+        >
         <EditText
             android:id="@+id/editLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
-            android:textColorHint="#FFEED9"
-            android:textColor="#FFEED9"/>
+            android:textColor="@color/mhLightColor"/>
     </android.support.design.widget.TextInputLayout>
-    <Button
-        android:id="@+id/changeNameBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/change_name"
-        android:textColor="#FFEED9"
-        android:background="#342860"
-        app:layout_constraintTop_toBottomOf="@id/tilLastName"
-        app:layout_constraintStart_toEndOf="@id/avatarImage"
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@id/changeNameBtn"
+        app:layout_constraintTop_toBottomOf="@id/tilLastName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tilEmail"
@@ -77,13 +73,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/family"
-            android:textColor="#FFEED9"/>
+            android:textColor="@color/mhLightColor"
+            android:buttonTint="@color/mhLightColor"/>
         <RadioButton
             android:id="@+id/guestRB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/guest"
-            android:textColor="#FFEED9"/>
+            android:textColor="@color/mhLightColor"
+            android:buttonTint="@color/mhLightColor"/>
     </RadioGroup>
 
     <!--__________________________________________________________-->
@@ -102,8 +100,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
-            android:textColorHint="#FFEED9"
-            android:textColor="#FFEED9"/>
+            android:textColorHint="@color/mhLightColor"
+            android:textColor="@color/mhLightColor"/>
     </android.support.design.widget.TextInputLayout>
 
     <!--__________________________________________________________-->
@@ -122,8 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone"
-            android:textColorHint="#FFEED9"
-            android:textColor="#FFEED9"/>
+            android:textColorHint="@color/mhLightColor"
+            android:textColor="@color/mhLightColor"/>
     </android.support.design.widget.TextInputLayout>
 
     <!--__________________________________________________________-->
@@ -142,8 +140,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:textColorHint="#FFEED9"
-            android:textColor="#FFEED9"
+            android:textColorHint="@color/mhLightColor"
+            android:textColor="@color/mhLightColor"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 

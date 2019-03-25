@@ -23,25 +23,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:background="#FFEED9">
+        android:background="@color/mhLightColor">
 
         <View
             android:layout_width="110dp"
             android:layout_height="130dp"
             android:layout_gravity="end"
-            android:background="#A29696"
+            android:background="@color/mhGreyColor"
             />
         <View
             android:layout_width="110dp"
             android:layout_height="130dp"
             android:layout_gravity="bottom"
-            android:background="#A29696"
+            android:background="@color/mhGreyColor"
             />
+
         <FrameLayout
             android:id="@+id/frameForFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/innerConstraintMainActivity"
@@ -49,7 +49,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="15dp"
-            android:background="#342860"
+            android:background="@color/mhDarkColor"
             android:padding="10dp">
             <TextView
                 android:id="@+id/main_screen_header"
@@ -59,7 +59,7 @@
                 android:textSize="28sp"
                 android:textStyle="normal"
                 android:textAlignment="center"
-                android:textColor="#FFEED9"
+                android:textColor="@color/mhLightColor"
                 android:layout_marginTop="60dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
                 android:text="@string/main_screen_text"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                android:textColor="#FFEED9"
+                android:textColor="@color/mhLightColor"
                 android:layout_marginTop="20dp"
                 app:layout_constraintTop_toBottomOf="@id/main_screen_header"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +85,7 @@
                 android:text="@string/main_screen_text2"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                android:textColor="#FFEED9"
+                android:textColor="@color/mhLightColor"
                 app:layout_constraintTop_toBottomOf="@id/main_screen_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
