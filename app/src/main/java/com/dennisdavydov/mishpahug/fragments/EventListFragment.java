@@ -25,6 +25,7 @@ public class EventListFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     EventsRecyclerViewAdapter adapter;
+    /////
 
     // TODO: Rename and change types of parameters
     private String mParam1;
