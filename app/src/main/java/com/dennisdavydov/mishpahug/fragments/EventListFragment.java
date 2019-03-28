@@ -138,8 +138,7 @@ public class EventListFragment extends Fragment {
         App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-                if(response.isSuccessful()&& response.body()!=null){
-                    events.addAll(response.body().getEvents());
+                     events.addAll(response.body().getEvents());
 
                     if(!isAdapterSet){
                         adapter=new EventsRecyclerViewAdapter(events);
@@ -158,11 +157,14 @@ public class EventListFragment extends Fragment {
                     }
 
                 }
-            }
+
             @Override
             public void onFailure(Call<EventsDescription> call, Throwable t) {
-                    t.fillInStackTrace();
+                t.fillInStackTrace();
+
             }
+
+
         });
 
     }
