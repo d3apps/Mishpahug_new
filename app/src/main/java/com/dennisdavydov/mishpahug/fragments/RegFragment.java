@@ -127,6 +127,7 @@ public class RegFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
         tilFirstName = view.findViewById(R.id.tilFirstName);
         tilFirstName.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
 

@@ -3,6 +3,8 @@ package com.dennisdavydov.mishpahug.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import com.dennisdavydov.mishpahug.R;
 import java.util.Calendar;
 ////////////////////////////////////////////////////////////////////////////////////////////
 public class CalendarFragment extends Fragment {
+
+    CalendarView calendarView;
 
     private OnFragmentInteractionListener mListener;
 
@@ -87,6 +91,16 @@ public class CalendarFragment extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        calendarView=view.findViewById(R.id.calendarId);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
 
+            }
+        });
     }
+}
 
