@@ -144,11 +144,8 @@ public class EventListFragment extends Fragment {
                         isAdapterSet=true;
                     }
                     adapter.notifyDataSetChanged();
-
                 }
-
             }
-
             @Override
             public void onFailure(Call<EventsDescription> call, Throwable t) {
                     t.fillInStackTrace();
