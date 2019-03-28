@@ -1,12 +1,16 @@
 package com.dennisdavydov.mishpahug.Adapters;
 
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.dennisdavydov.mishpahug.R;
 import com.dennisdavydov.mishpahug.models.Event;
 
@@ -21,12 +25,14 @@ public class EventsRecyclerViewAdapter extends
         TextView title;
         TextView holiday;
         TextView date;
+        ImageView eventImage;
 
         public EventsViewHolder(View itemView){
             super(itemView);
             title=itemView.findViewById(R.id.event_title);
             holiday=itemView.findViewById(R.id.holiday);
             date=itemView.findViewById(R.id.date);
+            eventImage=itemView.findViewById(R.id.familyImage);
         }
     }
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -35,14 +41,11 @@ public class EventsRecyclerViewAdapter extends
         this.events=events;
     }
 //////////////////////////////////////////////////////////////////////////////////////
-
-
     @NonNull
     @Override
     public EventsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         return  new EventsViewHolder(LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.cardview_event_list,viewGroup,false));
-
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////
     @Override
@@ -51,6 +54,10 @@ public class EventsRecyclerViewAdapter extends
         viewHolder.title.setText(currentEvent.getTitle());
         viewHolder.holiday.setText(currentEvent.getHoliday());
         viewHolder.date.setText(currentEvent.getDate());
+
+        //viewHolder.eventImage.setImageDrawable((Drawable) currentEvent.getOwner().getPictureLink());
+        Glide.with(viewHolder.itemView.getContext())
+                  .load(currentEvent.getOwner().getPictureLink().get(0)).apply(new RequestOptions()).into(viewHolder.eventImage);
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
