@@ -40,10 +40,9 @@ public class EventsRecyclerViewAdapter extends
     @NonNull
     @Override
     public EventsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.cardview_event_list,viewGroup,false);
-        EventsViewHolder viewHolder=new EventsViewHolder(view);
-        return viewHolder;
+        return  new EventsViewHolder(LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.cardview_event_list,viewGroup,false));
+
     }
 ///////////////////////////////////////////////////////////////////////////////////////////////
     @Override
