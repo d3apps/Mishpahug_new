@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 
 import android.support.v4.widget.DrawerLayout;
@@ -20,10 +18,6 @@ import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
 import com.dennisdavydov.mishpahug.fragments.EventListFragment;
-import com.dennisdavydov.mishpahug.models.EventModel;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         CalendarFragment.OnFragmentInteractionListener,EventListFragment.OnFragmentInteractionListener {

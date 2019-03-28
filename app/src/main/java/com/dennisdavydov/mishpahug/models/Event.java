@@ -6,7 +6,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 ///////////////////////////////////////////////////////////////////////////////////////////////
-public class EventModel {
+public class Event {
     @SerializedName("eventId")
     @Expose
     private Integer eventId;
@@ -28,46 +28,19 @@ public class EventModel {
     @SerializedName("duration")
     @Expose
     private Integer duration;
+    @SerializedName("address")
+    @Expose
+    private Address address;
     @SerializedName("food")
     @Expose
     private List<String> food = null;
     @SerializedName("description")
     @Expose
     private String description;
-    @SerializedName("status")
+    @SerializedName("owner")
     @Expose
-    private String status;
-    @SerializedName("participants")
-    @Expose
-    private List<ParticipantModel> participants = null;
+    private Owner owner;
 
-    public EventModel() {
-    }
- ///////////////////////////////////////////////////////////////////////////////////////////////
-    public EventModel(Integer eventId, String title, String holiday, String confession,
-                      String date, String time, Integer duration,
-                      List<String> food, String description, String status,
-                      List<ParticipantModel> participants) {
-        super();
-        this.eventId = eventId;
-        this.title = title;
-        this.holiday = holiday;
-        this.confession = confession;
-        this.date = date;
-        this.time = time;
-        this.duration = duration;
-        this.food = food;
-        this.description = description;
-        this.status = status;
-        this.participants = participants;
-    }
-/////////////////////////////////////////////////////////////////////////////////////////////////
-    public EventModel( String title, String holiday,String date){
-        this.title = title;
-        this.holiday = holiday;
-        this.date = date;
-    }
-///////////////////////////////////////////////////////////////////////////////////////////////
     public Integer getEventId() {
         return eventId;
     }
@@ -124,6 +97,14 @@ public class EventModel {
         this.duration = duration;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
     public List<String> getFood() {
         return food;
     }
@@ -140,20 +121,11 @@ public class EventModel {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
-
-    public List<ParticipantModel> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<ParticipantModel> participants) {
-        this.participants = participants;
-    }
-
 }

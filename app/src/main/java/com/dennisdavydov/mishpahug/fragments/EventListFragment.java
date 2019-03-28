@@ -4,8 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.R;
-import com.dennisdavydov.mishpahug.models.EventModel;
+import com.dennisdavydov.mishpahug.models.Event;
 
 import java.util.List;
 ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -23,7 +21,7 @@ public class EventListFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    List<EventModel>events;
+    List<Event>events;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     EventsRecyclerViewAdapter adapter;

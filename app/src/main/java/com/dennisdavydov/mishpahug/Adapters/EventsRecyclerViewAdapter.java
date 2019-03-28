@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.R;
-import com.dennisdavydov.mishpahug.models.EventModel;
+import com.dennisdavydov.mishpahug.models.Event;
 
 import java.util.List;
 //////////////////////////////////////////////////////////////////////////////////////////////
 public class EventsRecyclerViewAdapter extends
         RecyclerView.Adapter<EventsRecyclerViewAdapter.EventsViewHolder> {
 
-    private List<EventModel>events;
+    private List<Event>events;
 ///////////////////////////////////////////////////////////////////////////////////////////
     public class EventsViewHolder extends RecyclerView.ViewHolder {
         TextView title;
@@ -30,7 +30,7 @@ public class EventsRecyclerViewAdapter extends
         }
     }
 ///////////////////////////////////////////////////////////////////////////////////////
-    public EventsRecyclerViewAdapter(List<EventModel>events)
+    public EventsRecyclerViewAdapter(List<Event>events)
     {
         this.events=events;
     }
@@ -48,7 +48,7 @@ public class EventsRecyclerViewAdapter extends
 ///////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public void onBindViewHolder(@NonNull EventsViewHolder viewHolder, int position) {
-        EventModel currentEvent=events.get(position);
+        Event currentEvent=events.get(position);
         viewHolder.title.setText(currentEvent.getTitle());
         viewHolder.holiday.setText(currentEvent.getHoliday());
         viewHolder.date.setText(currentEvent.getDate());
