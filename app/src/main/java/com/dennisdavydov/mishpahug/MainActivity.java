@@ -64,11 +64,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             break;
             case R.id.loginRegBtn:{
-                Toast.makeText(this,"Button pressed",Toast.LENGTH_LONG).show();
-                innerConstraintMainActivity.setVisibility(View.GONE);
+                //Toast.makeText(this,"Button pressed",Toast.LENGTH_LONG).show();
+                //innerConstraintMainActivity.setVisibility(View.GONE);
                 manager = getSupportFragmentManager();
                 transaction = manager.beginTransaction();
                 regFragment = new RegFragment();
+                transaction.addToBackStack(null);
                 transaction.add(R.id.frameForFragment,regFragment);
                 transaction.commit();
             }

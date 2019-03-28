@@ -3,12 +3,20 @@ package com.dennisdavydov.mishpahug.fragments;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.dennisdavydov.mishpahug.R;
+import com.dennisdavydov.mishpahug.singletons.SingletonFonts;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +27,13 @@ import com.dennisdavydov.mishpahug.R;
  * create an instance of this fragment.
  */
 public class RegFragment extends Fragment {
+
+    ImageView avatarImage;
+    TextInputLayout tilFirstName,tilLastName,tilEmail,tilPhone,tilPassword;
+    EditText editFirstName,editLastName,editEmail,editPhone,editPassword;
+    RadioGroup radioGroup;
+    RadioButton familyRB,guestRB;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -59,6 +74,7 @@ public class RegFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -105,5 +121,28 @@ public class RegFragment extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        tilFirstName = view.findViewById(R.id.tilFirstName);
+        tilFirstName.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
+
+        tilLastName = view.findViewById(R.id.tilLastName);
+        tilLastName.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
+
+        tilEmail = view.findViewById(R.id.tilEmail);
+        tilEmail.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
+
+        tilPhone = view.findViewById(R.id.tilPhone);
+        tilPhone.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
+
+        tilPassword = view.findViewById(R.id.tilPassword);
+        tilPassword.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
+
+
+
     }
 }
