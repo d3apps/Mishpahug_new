@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -124,15 +125,17 @@ public class EventListFragment extends Fragment {
                 new DividerItemDecoration(view.getContext(),DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(mDecoration);
         events=new ArrayList<>();
-        getEvent();
+
+
+        getEvent(0,2);
 
     }
 
 
     //////////////////////////////////////////////////////////////////////////
 
-    private void getEvent(){
-        App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
+    private void getEvent(final int curPage, final int curSize){
+        App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
                 if(response.isSuccessful()&& response.body()!=null){
@@ -143,7 +146,17 @@ public class EventListFragment extends Fragment {
                         recyclerView.setAdapter(adapter);
                         isAdapterSet=true;
                     }
+
                     adapter.notifyDataSetChanged();
+
+                    int mPage=curPage;
+                    Log.d("TAG",response.body().getTotalElements() + " pages total");
+                    if ( mPage<response.body().getTotalElements()/curSize){
+                        mPage++;
+                        getEvent(mPage,curSize);
+
+                    }
+
                 }
             }
             @Override

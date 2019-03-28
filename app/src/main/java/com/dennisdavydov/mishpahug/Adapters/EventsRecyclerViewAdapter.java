@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -56,8 +57,19 @@ public class EventsRecyclerViewAdapter extends
         viewHolder.date.setText(currentEvent.getDate());
 
         //viewHolder.eventImage.setImageDrawable((Drawable) currentEvent.getOwner().getPictureLink());
-        Glide.with(viewHolder.itemView.getContext())
-                  .load(currentEvent.getOwner().getPictureLink().get(0)).apply(new RequestOptions()).into(viewHolder.eventImage);
+//        int i=0;
+//        String curPictureLink= currentEvent.getOwner().getPictureLink().get(i);
+
+//        while (!curPictureLink.contains("http://")&&curPictureLink !=null){
+//            i++;
+//            curPictureLink= currentEvent.getOwner().getPictureLink().get(i);
+//        }
+
+            Glide.with(viewHolder.itemView.getContext())
+                    .load(currentEvent.getOwner().getPictureLink().get(2)).apply(new RequestOptions())
+                    .into(viewHolder.eventImage);
+
+
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////
     @Override

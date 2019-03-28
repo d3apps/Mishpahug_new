@@ -4,12 +4,13 @@ import com.dennisdavydov.mishpahug.models.EventsDescription;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface ApiProvider {
 
-    @GET("/v2/5c9d172c33000056003f227e")
-    Call<EventsDescription> getEvent();
+    @POST("/event/allprogresslist")
+    Call<EventsDescription> getEvent(@Query("page") int page, @Query("size") int size);
 
 
 }
