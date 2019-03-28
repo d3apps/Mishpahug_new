@@ -79,6 +79,11 @@ public class EventModel {
         this.status = status;
         this.participants = participants;
     }
+    public EventModel( String title, String holiday,String date){
+        this.title = title;
+        this.holiday = holiday;
+        this.date = date;
+    }
 
     public Integer getEventId() {
         return eventId;

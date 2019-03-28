@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 
 import com.dennisdavydov.mishpahug.R;
 
-public class EventInfoPage extends Fragment {
+public class EventInfoPageFragment extends Fragment {
 
 
     @Override
