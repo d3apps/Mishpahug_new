@@ -5,9 +5,8 @@ package com.dennisdavydov.mishpahug.models;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+///////////////////////////////////////////////////////////////////////////////////////////////
 public class EventModel {
-
     @SerializedName("eventId")
     @Expose
     private Integer eventId;
@@ -38,34 +37,17 @@ public class EventModel {
     @SerializedName("status")
     @Expose
     private String status;
-
-   // @SerializedName("pictureLink")
-   // @Expose
-   // private String pictureLink;
-
-
     @SerializedName("participants")
     @Expose
     private List<ParticipantModel> participants = null;
 
     public EventModel() {
     }
-
-    /**
-     *
-     * @param confession
-     * @param holiday
-     * @param duration
-     * @param time
-     * @param title
-     * @param eventId
-     * @param status
-     * @param description
-     * @param food
-     * @param date
-     * @param participants
-     */
-    public EventModel(Integer eventId, String title, String holiday, String confession, String date, String time, Integer duration, List<String> food, String description, String status, List<ParticipantModel> participants) {
+ ///////////////////////////////////////////////////////////////////////////////////////////////
+    public EventModel(Integer eventId, String title, String holiday, String confession,
+                      String date, String time, Integer duration,
+                      List<String> food, String description, String status,
+                      List<ParticipantModel> participants) {
         super();
         this.eventId = eventId;
         this.title = title;
@@ -79,12 +61,13 @@ public class EventModel {
         this.status = status;
         this.participants = participants;
     }
+/////////////////////////////////////////////////////////////////////////////////////////////////
     public EventModel( String title, String holiday,String date){
         this.title = title;
         this.holiday = holiday;
         this.date = date;
     }
-
+///////////////////////////////////////////////////////////////////////////////////////////////
     public Integer getEventId() {
         return eventId;
     }

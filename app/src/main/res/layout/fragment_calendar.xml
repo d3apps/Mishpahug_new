@@ -3,13 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.CalendarFragment"
     android:background="@drawable/bg_grad">
 
     <CalendarView
         android:id="@+id/calendarId"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:theme="@style/CalenderViewCustom" />
+        android:layout_height="wrap_content"
+        android:theme="@style/CalenderViewCustom"
+        app:layout_constraintTop_toTopOf="parent"
+       />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/calendarId">
+
+    </ScrollView>
     
 </android.support.constraint.ConstraintLayout>

@@ -3,9 +3,8 @@ package com.dennisdavydov.mishpahug.models;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+//////////////////////////////////////////////////////////////////////////////////////////////
 public class ParticipantModel {
-
     @SerializedName("userId")
     @Expose
     private Integer userId;
@@ -45,23 +44,12 @@ public class ParticipantModel {
 
     public ParticipantModel() {
     }
-
-    /**
-     *
-     * @param confession
-     * @param languages
-     * @param isInvited
-     * @param rate
-     * @param foodPreferences
-     * @param pictureLink
-     * @param age
-     * @param userId
-     * @param gender
-     * @param fullName
-     * @param maritalStatus
-     * @param numberOfVoters
-     */
-    public ParticipantModel(Integer userId, String fullName, String confession, String gender, Integer age, List<String> pictureLink, String maritalStatus, List<String> foodPreferences, List<String> languages, Double rate, Integer numberOfVoters, Boolean isInvited) {
+///////////////////////////////////////////////////////////////////////////////////////////////////
+    public ParticipantModel(Integer userId, String fullName, String confession,
+                            String gender, Integer age, List<String> pictureLink,
+                            String maritalStatus, List<String> foodPreferences,
+                            List<String> languages, Double rate, Integer numberOfVoters,
+                            Boolean isInvited) {
         super();
         this.userId = userId;
         this.fullName = fullName;
@@ -76,7 +64,7 @@ public class ParticipantModel {
         this.numberOfVoters = numberOfVoters;
         this.isInvited = isInvited;
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////
     public Integer getUserId() {
         return userId;
     }
