@@ -65,9 +65,14 @@ public class EventsRecyclerViewAdapter extends
 //            curPictureLink= currentEvent.getOwner().getPictureLink().get(i);
 //        }
 
+        try {
             Glide.with(viewHolder.itemView.getContext())
                     .load(currentEvent.getOwner().getPictureLink().get(2)).apply(new RequestOptions())
                     .into(viewHolder.eventImage);
+        } catch (IndexOutOfBoundsException e) {
+            e.printStackTrace();
+            viewHolder.eventImage.setImageResource(R.mipmap.family);
+        }
 
 
     }
