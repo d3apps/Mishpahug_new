@@ -2,13 +2,50 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.EventInfoFragment">
+    android:layout_height="wrap_content"
+    tools:context=".fragments.EventInfoFragment"
+    android:background="@drawable/bg_grad">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/eventInfoImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+
+        android:src="@mipmap/family"
+        android:background="@color/mhDarkColor"/>
+    <View
+        android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:backgroundTint="@color/bg_menu_color"
+        android:layout_marginTop="140dp"
+        />
+    <TextView
+        android:id="@+id/event_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Goldberg family"
+        android:textColor="@color/mhLightColor"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/raleway_medium"/>
+    <TextView
+        android:id="@+id/holiday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Shabbat"
+        android:textColor="@color/white"
+        android:layout_below="@id/event_title"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/raleway_medium" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22.05.90"
+        android:textColor="@color/white"
+        android:layout_below="@id/holiday"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/raleway_medium"/>
 
 </FrameLayout>
