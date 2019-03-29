@@ -48,6 +48,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 transaction = fragmentManager.beginTransaction();
                 eventListFragment = new EventListFragment();
                 transaction.add(R.id.fragment_container,eventListFragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
             } break;
             case 2:{
@@ -93,6 +94,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 transaction = fragmentManager.beginTransaction();
                 eventListFragment = new EventListFragment();
                 transaction.add(R.id.fragment_container,eventListFragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
 
 
@@ -103,6 +105,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 transaction = fragmentManager.beginTransaction();
                 calendarFragment = new CalendarFragment();
                 transaction.add(R.id.fragment_container,calendarFragment);
+                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
 
