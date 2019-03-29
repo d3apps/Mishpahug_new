@@ -135,7 +135,7 @@ public class EventListFragment extends Fragment {
     //////////////////////////////////////////////////////////////////////////
 
     private void getEvent(final int curPage, final int curSize){
-        App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
+        App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
                      events.addAll(response.body().getEvents());
