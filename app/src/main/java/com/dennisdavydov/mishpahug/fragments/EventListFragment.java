@@ -14,9 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.App;
@@ -32,23 +30,18 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-public class EventListFragment extends Fragment implements View.OnClickListener,FiltersFragment.OnFragmentInteractionListener {
+public class EventListFragment extends Fragment {
 
-
-    FiltersFragment filtersFragment;
+    boolean isAdapterSet=false;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    boolean isAdapterSet=false;
-    Button filtersBtn;
-
     List<Event>events;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     EventsRecyclerViewAdapter adapter;
-    TextView errorTextView;
 ///
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -93,7 +86,6 @@ public class EventListFragment extends Fragment implements View.OnClickListener,
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-
     }
 //////////////////////////////////////////////////////////////////////////////////
     @Override
@@ -113,23 +105,7 @@ public class EventListFragment extends Fragment implements View.OnClickListener,
         super.onDetach();
         mListener = null;
     }
-
-    @Override
-    public void onClick(View v) {
-        if(v.getId()==R.id.filtersBtn){
-           filtersFragment=new FiltersFragment();
-           getActivity().getSupportFragmentManager()
-                   .beginTransaction().add(R.id.fragment_container,filtersFragment,"findThisFragment")
-                   .addToBackStack(null).commit();
-        }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-    //////////////////////////////////////////////////////////////////////////////////
+ //////////////////////////////////////////////////////////////////////////////////
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -140,9 +116,6 @@ public class EventListFragment extends Fragment implements View.OnClickListener,
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.recyclerview_id);
-        errorTextView = view.findViewById(R.id.errorTextWiew);
-        filtersBtn=view.findViewById(R.id.filtersBtn);
-        filtersBtn.setOnClickListener(this);
         //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
         //recyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
@@ -154,20 +127,18 @@ public class EventListFragment extends Fragment implements View.OnClickListener,
         events=new ArrayList<>();
 
 
-        getEvent();
+        getEvent(0,2);
 
     }
 
 
     //////////////////////////////////////////////////////////////////////////
 
-    private void getEvent(){
-        App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
+    private void getEvent(final int curPage, final int curSize){
+        App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-
-                if (response.body() != null) {
-                    events.addAll(response.body().getEvents());
+                     events.addAll(response.body().getEvents());
 
                     if(!isAdapterSet){
                         adapter=new EventsRecyclerViewAdapter(events);
@@ -177,20 +148,13 @@ public class EventListFragment extends Fragment implements View.OnClickListener,
 
                     adapter.notifyDataSetChanged();
 
-                   // int mPage=curPage;
-                    Log.d("TAG",response.body() + " pages total");
-//                    if ( mPage<response.body().getTotalElements()/curSize){
-//                        mPage++;
-//                        getEvent(mPage,curSize);
-//
-//                    }
-                } else {
-                    recyclerView.setVisibility(View.GONE);
-                    errorTextView.setVisibility(View.VISIBLE);
-                    errorTextView.setText(R.string.serverError);
-                }
+                    int mPage=curPage;
+                    Log.d("TAG",response.body().getTotalElements() + " pages total");
+                    if ( mPage<response.body().getTotalElements()/curSize){
+                        mPage++;
+                        getEvent(mPage,curSize);
 
-
+                    }
 
                 }
 

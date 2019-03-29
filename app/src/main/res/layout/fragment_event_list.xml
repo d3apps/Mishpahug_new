@@ -6,43 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.dennisdavydov.mishpahug.fragments.EventListFragment"
     android:padding="8dp"
-    android:background="@drawable/bg_grad"
-    android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <Button
-            android:id="@+id/filtersBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Filters"
-            android:textSize="27dp"
-            android:background="@color/transparent"
-            android:textColor="@color/white"
-            android:layout_centerHorizontal="true"/>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/white"
-            android:layout_below="@id/filtersBtn"/>
-    </RelativeLayout>
+    android:background="@drawable/bg_grad">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_id"
         android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_height="match_parent">
 
     </android.support.v7.widget.RecyclerView>
-
-    <TextView
-        android:id="@+id/errorTextWiew"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/mhLightColor"
-        android:textSize="28sp"
-        android:visibility="gone"/>
 
 
 </LinearLayout>

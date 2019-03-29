@@ -9,8 +9,9 @@
 
     <FrameLayout
         android:id="@+id/frameLayoutMainActivity"
-        android:layout_width="350dp"
-        android:layout_height="500dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
         android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         android:layout_marginStart="15dp"
@@ -52,6 +53,7 @@
                 android:orientation="vertical"
                 >
                 <Button
+
                     android:id="@+id/closeBtn"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -60,6 +62,11 @@
                     />
                 <TextView
                     android:id="@+id/filtersTitle"
+
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -68,6 +75,7 @@
                     android:layout_gravity="center"
                     />
                 <EditText
+
                     android:id="@+id/editDate"
                     android:hint="Date"
                     android:textSize="15dp"
@@ -113,8 +121,9 @@
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
-                    android:text="FIND"
-                    android:layout_gravity="center"/>
+                    android:text="FIND"/>
+
+
 
 
 
