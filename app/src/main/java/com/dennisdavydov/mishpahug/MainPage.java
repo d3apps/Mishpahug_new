@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
 import com.dennisdavydov.mishpahug.fragments.EventListFragment;
+import com.dennisdavydov.mishpahug.fragments.RegFragment;
 
 public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         CalendarFragment.OnFragmentInteractionListener,EventListFragment.OnFragmentInteractionListener {
@@ -28,6 +29,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
     DrawerLayout drawerLayout;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,17 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        int intentFragment = getIntent().getExtras().getInt("frgToLoad");
 
+        switch (intentFragment){
+            case 1:{
+                fragmentManager = getSupportFragmentManager();
+                transaction = fragmentManager.beginTransaction();
+                eventListFragment = new EventListFragment();
+                transaction.add(R.id.fragment_container,eventListFragment);
+                transaction.commit();
+            } break;
+        }
 
         drawerLayout =findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

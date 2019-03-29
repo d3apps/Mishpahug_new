@@ -59,8 +59,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.nextBtn:{
                 Intent intent=new Intent(this,MainPage.class);
+                intent.putExtra("frgToLoad",1);
                 startActivity(intent);
-                finish();
+                //finish();
             }
             break;
             case R.id.loginRegBtn:{
