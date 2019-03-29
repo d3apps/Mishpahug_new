@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.App;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class EventListFragment extends Fragment {
 
     boolean isAdapterSet=false;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,6 +44,7 @@ public class EventListFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     EventsRecyclerViewAdapter adapter;
+    TextView errorTextView;
 ///
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -116,6 +119,7 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.recyclerview_id);
+        errorTextView = view.findViewById(R.id.errorTextWiew);
         //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
         //recyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
@@ -127,18 +131,20 @@ public class EventListFragment extends Fragment {
         events=new ArrayList<>();
 
 
-        getEvent(0,2);
+        getEvent();
 
     }
 
 
     //////////////////////////////////////////////////////////////////////////
 
-    private void getEvent(final int curPage, final int curSize){
-        App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
+    private void getEvent(){
+        App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-                     events.addAll(response.body().getEvents());
+
+                if (response.body() != null) {
+                    events.addAll(response.body().getEvents());
 
                     if(!isAdapterSet){
                         adapter=new EventsRecyclerViewAdapter(events);
@@ -148,13 +154,20 @@ public class EventListFragment extends Fragment {
 
                     adapter.notifyDataSetChanged();
 
-                    int mPage=curPage;
-                    Log.d("TAG",response.body().getTotalElements() + " pages total");
-                    if ( mPage<response.body().getTotalElements()/curSize){
-                        mPage++;
-                        getEvent(mPage,curSize);
+                   // int mPage=curPage;
+                    Log.d("TAG",response.body() + " pages total");
+//                    if ( mPage<response.body().getTotalElements()/curSize){
+//                        mPage++;
+//                        getEvent(mPage,curSize);
+//
+//                    }
+                } else {
+                    recyclerView.setVisibility(View.GONE);
+                    errorTextView.setVisibility(View.VISIBLE);
+                    errorTextView.setText(R.string.serverError);
+                }
 
-                    }
+
 
                 }
 

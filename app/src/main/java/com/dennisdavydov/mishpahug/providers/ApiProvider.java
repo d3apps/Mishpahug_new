@@ -9,8 +9,10 @@ import retrofit2.http.Query;
 
 public interface ApiProvider {
 
-    @POST("/event/allprogresslist")
-    Call<EventsDescription> getEvent(@Query("page") int page, @Query("size") int size);
+    @GET("v2/5c9d83ae330000b12c3f2350")
+    Call<EventsDescription> getEvent();
+
+    //@Query("page") int page, @Query("size") int size
 
 
 }

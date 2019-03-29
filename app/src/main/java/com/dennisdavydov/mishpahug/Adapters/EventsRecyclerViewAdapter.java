@@ -56,18 +56,11 @@ public class EventsRecyclerViewAdapter extends
         viewHolder.holiday.setText(currentEvent.getHoliday());
         viewHolder.date.setText(currentEvent.getDate());
 
-        //viewHolder.eventImage.setImageDrawable((Drawable) currentEvent.getOwner().getPictureLink());
-//        int i=0;
-//        String curPictureLink= currentEvent.getOwner().getPictureLink().get(i);
 
-//        while (!curPictureLink.contains("http://")&&curPictureLink !=null){
-//            i++;
-//            curPictureLink= currentEvent.getOwner().getPictureLink().get(i);
-//        }
 
         try {
             Glide.with(viewHolder.itemView.getContext())
-                    .load(currentEvent.getOwner().getPictureLink().get(2)).apply(new RequestOptions())
+                    .load(currentEvent.getOwner().getPictureLink().get(0)).apply(new RequestOptions())
                     .into(viewHolder.eventImage);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();

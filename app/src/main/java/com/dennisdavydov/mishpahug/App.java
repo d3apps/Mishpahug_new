@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App extends Application {
 
-    private static final String BASE_URL = "https://mishpahug-java221-team-a.herokuapp.com";
+    private static final String BASE_URL = "http://www.mocky.io/";
     private static ApiProvider provider;
     private Retrofit retrofit;
 
