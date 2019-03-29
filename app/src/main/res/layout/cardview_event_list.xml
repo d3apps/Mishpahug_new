@@ -23,7 +23,7 @@
         android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:backgroundTint="@color/bg_menu_color"
+        android:background="@color/bg_menu_color"
         android:layout_marginTop="140dp"
         >
         <TextView
