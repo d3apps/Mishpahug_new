@@ -1,6 +1,7 @@
 package com.dennisdavydov.mishpahug.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,11 +15,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.App;
+import com.dennisdavydov.mishpahug.MainPage;
 import com.dennisdavydov.mishpahug.R;
 import com.dennisdavydov.mishpahug.models.Event;
 import com.dennisdavydov.mishpahug.models.EventsDescription;
@@ -31,9 +34,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-public class EventListFragment extends Fragment {
+public class EventListFragment extends Fragment   implements View.OnClickListener{
 
     boolean isAdapterSet=false;
+    Button filtersBtn;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -108,7 +112,17 @@ public class EventListFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
- //////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId()==R.id.filtersBtn) {
+            Intent i = new Intent(v.getContext(), MainPage.class);
+            i.putExtra("frgToLoad",2);
+            startActivity(i);
+        }
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -122,6 +136,8 @@ public class EventListFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         errorTextView = view.findViewById(R.id.errorTextWiew);
+        filtersBtn=view.findViewById(R.id.filtersBtn);
+        filtersBtn.setOnClickListener(this);
         //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
         //recyclerView.setLayoutManager(mLayoutManager);
 

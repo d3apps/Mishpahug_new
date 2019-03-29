@@ -50,6 +50,15 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 transaction.add(R.id.fragment_container,eventListFragment);
                 transaction.commit();
             } break;
+            case 2:{
+                fragmentManager = getSupportFragmentManager();
+                transaction = fragmentManager.beginTransaction();
+                filtersFragment = new FiltersFragment();
+                transaction.add(R.id.fragment_container,filtersFragment);
+                transaction.commit();
+
+
+            }break;
         }
 
         drawerLayout =findViewById(R.id.drawer_layout);

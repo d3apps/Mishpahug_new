@@ -126,8 +126,8 @@ public class FiltersFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.closeBtn){
-            //getActivity().getFragmentManager().popBackStack();
-            getActivity().onBackPressed();
+                //getActivity().getFragmentManager().popBackStack();
+                getActivity().onBackPressed();
 
 
         }
