@@ -18,13 +18,16 @@ import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
 import com.dennisdavydov.mishpahug.fragments.EventListFragment;
+import com.dennisdavydov.mishpahug.fragments.FiltersFragment;
 import com.dennisdavydov.mishpahug.fragments.RegFragment;
 
 public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        CalendarFragment.OnFragmentInteractionListener,EventListFragment.OnFragmentInteractionListener {
+        CalendarFragment.OnFragmentInteractionListener,EventListFragment.OnFragmentInteractionListener,
+        FiltersFragment.OnFragmentInteractionListener
+{
 
     FragmentManager fragmentManager;
-    Fragment calendarFragment,eventListFragment;
+    Fragment calendarFragment,eventListFragment,filtersFragment;
     FragmentTransaction transaction;
     DrawerLayout drawerLayout;
 
@@ -57,6 +60,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -94,9 +98,6 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
         }
-
-
-
 
         drawerLayout.closeDrawer(GravityCompat.START);
 

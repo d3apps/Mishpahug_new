@@ -6,8 +6,8 @@
     android:layout_width="160dp"
     android:layout_height="220dp"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    cardview:cardCornerRadius="4dp"
-    android:padding="5dp"
+    cardview:cardCornerRadius="1dp"
+    android:layout_gravity="center"
     android:backgroundTint="@color/mhDarkColor">
 
     <ImageView

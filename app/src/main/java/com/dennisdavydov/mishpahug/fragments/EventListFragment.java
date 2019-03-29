@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -31,14 +32,17 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-public class EventListFragment extends Fragment {
+public class EventListFragment extends Fragment implements View.OnClickListener,FiltersFragment.OnFragmentInteractionListener {
 
-    boolean isAdapterSet=false;
 
+    FiltersFragment filtersFragment;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    boolean isAdapterSet=false;
+    Button filtersBtn;
 
     List<Event>events;
     RecyclerView recyclerView;
@@ -89,6 +93,7 @@ public class EventListFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+
     }
 //////////////////////////////////////////////////////////////////////////////////
     @Override
@@ -108,7 +113,23 @@ public class EventListFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
- //////////////////////////////////////////////////////////////////////////////////
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.filtersBtn){
+           filtersFragment=new FiltersFragment();
+           getActivity().getSupportFragmentManager()
+                   .beginTransaction().add(R.id.fragment_container,filtersFragment,"findThisFragment")
+                   .addToBackStack(null).commit();
+        }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
@@ -120,6 +141,8 @@ public class EventListFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.recyclerview_id);
         errorTextView = view.findViewById(R.id.errorTextWiew);
+        filtersBtn=view.findViewById(R.id.filtersBtn);
+        filtersBtn.setOnClickListener(this);
         //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
         //recyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);

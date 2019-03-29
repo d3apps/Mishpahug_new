@@ -1,12 +1,20 @@
-package com.dennisdavydov.mishpahug;
+package com.dennisdavydov.mishpahug.fragments;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.dennisdavydov.mishpahug.R;
 
 
 /**
@@ -17,7 +25,15 @@ import android.view.ViewGroup;
  * Use the {@link FiltersFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FiltersFragment extends Fragment {
+public class FiltersFragment extends Fragment implements View.OnClickListener {
+
+    Button find,closeBtn;
+    EditText  date,confession,holiday,city,raiting;
+    RegFragment regFragment;
+
+    FragmentManager manager;
+    FragmentTransaction transaction;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,6 +83,22 @@ public class FiltersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_filters, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        find=view.findViewById(R.id.findBtn);
+        find.setOnClickListener(this);
+        closeBtn=view.findViewById(R.id.closeBtn);
+        closeBtn.setOnClickListener(this);
+        date=view.findViewById(R.id.editDate);
+        confession=view.findViewById(R.id.editConfession);
+        holiday=view.findViewById(R.id.editHoliday);
+        city=view.findViewById(R.id.editCity);
+        raiting=view.findViewById(R.id.editRaiting);
+
+
+    }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -89,6 +121,17 @@ public class FiltersFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.closeBtn){
+            //getActivity().getFragmentManager().popBackStack();
+            getActivity().onBackPressed();
+
+
+        }
+
     }
 
     /**

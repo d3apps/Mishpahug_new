@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
-    android:layout_height="500dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FiltersFragment"
-    android:background="@drawable/bg_grad">
-
+    tools:context=".fragments.FiltersFragment"
+    android:background="@color/transparent">
 
     <FrameLayout
         android:id="@+id/frameLayoutMainActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="350dp"
+        android:layout_height="500dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="60dp"
         android:layout_marginStart="15dp"
@@ -53,10 +52,14 @@
                 android:orientation="vertical"
                 >
                 <Button
+                    android:id="@+id/closeBtn"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/close_btn"
                     />
                 <TextView
+                    android:id="@+id/filtersTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
@@ -65,30 +68,52 @@
                     android:layout_gravity="center"
                     />
                 <EditText
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                    android:layout_marginTop="10dp"/>
-                <EditText
+                    android:id="@+id/editDate"
+                    android:hint="Date"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
                     android:layout_marginTop="10dp"/>
                 <EditText
+                    android:id="@+id/editConfession"
+                    android:hint="Confession"
+                    android:textSize="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
                 <EditText
+                    android:id="@+id/editHoliday"
+                    android:hint="holiday"
+                    android:textSize="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
+                <EditText
+                    android:id="@+id/editCity"
+                    android:hint="City"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
 
                 <EditText
+                    android:hint="Raiting"
+                    android:textSize="15dp"
+                    android:id="@+id/editRaiting"
                     android:layout_width="match_parent"
                     android:layout_height="35dp"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
                 <Button
+                    android:id="@+id/findBtn"
                     android:layout_width="100dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
+                    android:text="FIND"
                     android:layout_gravity="center"/>
 
 
