@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.App;
@@ -33,6 +34,8 @@ import retrofit2.Response;
 public class EventListFragment extends Fragment {
 
     boolean isAdapterSet=false;
+    TextView errorTextView;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -138,6 +141,7 @@ public class EventListFragment extends Fragment {
         App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
+                if (response.body() != null) {
                      events.addAll(response.body().getEvents());
 
                     if(!isAdapterSet){
@@ -155,6 +159,11 @@ public class EventListFragment extends Fragment {
                         getEvent(mPage,curSize);
 
                     }
+                } else {
+                    recyclerView.setVisibility(View.INVISIBLE);
+                    errorTextView.setVisibility(View.VISIBLE);
+                    errorTextView.setText(R.string.serverError);
+                }
 
                 }
 

@@ -30,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/mainL"
-        >
+        android:orientation="horizontal">
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerview_id"
             android:layout_width="match_parent"
@@ -39,8 +39,15 @@
             >
 
         </android.support.v7.widget.RecyclerView>
-
-
+        <TextView
+            android:id="@+id/errorTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/mhLightColor"
+            android:text="@string/serverError"
+            android:textSize="28sp"
+            android:visibility="gone"
+            />
     </LinearLayout>
 
 
