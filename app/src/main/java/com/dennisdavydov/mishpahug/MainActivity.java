@@ -14,15 +14,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dennisdavydov.mishpahug.fragments.FiltersFragment;
 import com.dennisdavydov.mishpahug.fragments.RegFragment;
 import com.dennisdavydov.mishpahug.singletons.SingletonFonts;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
-        RegFragment.OnFragmentInteractionListener {
+        RegFragment.OnFragmentInteractionListener, FiltersFragment.OnFragmentInteractionListener {
 
     Button nextBtn, loginRegBtn;
     TextView main_screen_header, main_screen_text, main_screen_text2;
     RegFragment regFragment;
+
     FragmentManager manager;
     FragmentTransaction transaction;
     ConstraintLayout innerConstraintMainActivity;

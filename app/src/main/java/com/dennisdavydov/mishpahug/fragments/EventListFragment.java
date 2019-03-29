@@ -34,7 +34,6 @@ import retrofit2.Response;
 public class EventListFragment extends Fragment {
 
     boolean isAdapterSet=false;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -44,14 +43,15 @@ public class EventListFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     EventsRecyclerViewAdapter adapter;
-    TextView errorTextView;
 ///
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-/////////////////////////////////////////////////////////////////////////////////
+    private TextView errorTextView;
+
+    /////////////////////////////////////////////////////////////////////////////////
     public EventListFragment() {
         // Required empty public constructor
     }
@@ -122,6 +122,9 @@ public class EventListFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         errorTextView = view.findViewById(R.id.errorTextWiew);
+        //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
+        //recyclerView.setLayoutManager(mLayoutManager);
+
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
 
@@ -131,20 +134,18 @@ public class EventListFragment extends Fragment {
         events=new ArrayList<>();
 
 
-        getEvent();
+        getEvent(0,2);
 
     }
 
 
     //////////////////////////////////////////////////////////////////////////
 
-    private void getEvent(){
+    private void getEvent(final int curPage, final int curSize){
         App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-
-                if (response.body() != null) {
-                    events.addAll(response.body().getEvents());
+                     events.addAll(response.body().getEvents());
 
                     if(!isAdapterSet){
                         adapter=new EventsRecyclerViewAdapter(events);
@@ -154,20 +155,13 @@ public class EventListFragment extends Fragment {
 
                     adapter.notifyDataSetChanged();
 
-                   // int mPage=curPage;
-                    Log.d("TAG",response.body() + " pages total");
-//                    if ( mPage<response.body().getTotalElements()/curSize){
-//                        mPage++;
-//                        getEvent(mPage,curSize);
-//
-//                    }
-                } else {
-                    recyclerView.setVisibility(View.GONE);
-                    errorTextView.setVisibility(View.VISIBLE);
-                    errorTextView.setText(R.string.serverError);
-                }
+                    int mPage=curPage;
+                    Log.d("TAG",response.body().getTotalElements() + " pages total");
+                    if ( mPage<response.body().getTotalElements()/curSize){
+                        mPage++;
+                        getEvent(mPage,curSize);
 
-
+                    }
 
                 }
 

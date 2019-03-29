@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.FiltersFragment"
+    android:background="@color/transparent">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:background="@color/mhLightColor">
+
+        <View
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_gravity="end"
+            android:background="@color/mhGreyColor"
+            />
+        <View
+            android:layout_width="110dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom"
+            android:background="@color/mhGreyColor"
+            />
+
+        <FrameLayout
+            android:id="@+id/frameForFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/innerConstraintMainActivity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/mhDarkColor"
+                android:padding="15dp"
+                android:orientation="vertical"
+                >
+                <Button
+
+                    android:id="@+id/closeBtn"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right"
+                    android:background="@drawable/close_btn"
+                    />
+                <TextView
+                    android:id="@+id/filtersTitle"
+
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    android:text="Filters"
+                    android:layout_gravity="center"
+                    />
+                <EditText
+
+                    android:id="@+id/editDate"
+                    android:hint="Date"
+                    android:textSize="15dp"
+                    android:textColorHint="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"/>
+                <EditText
+                    android:id="@+id/editConfession"
+                    android:hint="Confession"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
+                <EditText
+                    android:id="@+id/editHoliday"
+                    android:hint="holiday"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
+                <EditText
+                    android:id="@+id/editCity"
+                    android:hint="City"
+                    android:textSize="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
+
+                <EditText
+                    android:hint="Raiting"
+                    android:textSize="15dp"
+                    android:id="@+id/editRaiting"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="10dp"
+                    android:textColorHint="@color/white"/>
+                <Button
+                    android:id="@+id/findBtn"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:text="FIND"/>
+
+
+
+
+
+
+            </LinearLayout>
+        </FrameLayout>
+    </FrameLayout>
+
+</android.support.constraint.ConstraintLayout>
