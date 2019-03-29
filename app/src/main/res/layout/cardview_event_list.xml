@@ -2,26 +2,28 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardview_id"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:foreground="@color/transparent"
     android:layout_width="160dp"
     android:layout_height="220dp"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="5dp"
     cardview:cardCornerRadius="4dp"
-    android:background="@color/transparent">
+    android:padding="5dp"
+    android:backgroundTint="@color/mhDarkColor">
+
     <ImageView
         android:id="@+id/familyImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
         android:src="@mipmap/family"
-        android:layout_marginBottom="15dp"/>
+        android:background="@color/mhDarkColor"/>
     <RelativeLayout
         android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@color/transparent"
+        android:backgroundTint="@color/bg_menu_color"
         android:layout_marginTop="140dp"
         >
         <TextView
