@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Filters"
             android:textSize="25dp"
+            android:fontFamily="@font/raleway_medium"
             android:textColor="@color/white"
             android:background="@color/transparent"
             android:layout_centerHorizontal="true"/>
@@ -30,9 +31,11 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_id"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="20dp"/>
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:layout_gravity="center"
+        />
 
     <TextView
         android:id="@+id/errorTextWiew"

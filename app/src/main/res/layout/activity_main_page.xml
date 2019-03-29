@@ -43,7 +43,9 @@
         app:menu="@menu/profile_menu"
         android:background="@color/bg_menu_color"
         app:itemTextColor="@color/white"
-        app:itemTextAppearance="@style/NavDrawerTextStyle">
+        app:itemTextAppearance="@style/NavDrawerTextStyle"
+
+        android:foregroundGravity="bottom">
 
         <ImageView
             android:layout_width="200dp"
