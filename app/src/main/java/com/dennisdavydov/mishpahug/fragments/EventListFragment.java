@@ -119,9 +119,9 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         recyclerView=view.findViewById(R.id.recyclerview_id);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         errorTextView = view.findViewById(R.id.errorTextWiew);
-        //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
-        //recyclerView.setLayoutManager(mLayoutManager);
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
 

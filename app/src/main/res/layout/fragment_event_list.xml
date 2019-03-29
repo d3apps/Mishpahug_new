@@ -7,14 +7,13 @@
     tools:context="com.dennisdavydov.mishpahug.fragments.EventListFragment"
     android:padding="8dp"
     android:background="@drawable/bg_grad"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linearLayout">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_id"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"/>
 
     <TextView
         android:id="@+id/errorTextWiew"
