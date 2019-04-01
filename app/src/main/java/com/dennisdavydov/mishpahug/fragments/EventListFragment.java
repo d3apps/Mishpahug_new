@@ -158,27 +158,29 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
     //////////////////////////////////////////////////////////////////////////
 
     private void getEvent(final int curPage, final int curSize){
-        App.getProvider().getEvent().enqueue(new Callback<EventsDescription>() {
+        App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-                     events.addAll(response.body().getEvents());
+                if (response.isSuccessful() && response.body() !=null) {
 
-                    if(!isAdapterSet){
-                        adapter=new EventsRecyclerViewAdapter(events);
+                    events.addAll(response.body().getEvents());
+
+                    if (!isAdapterSet) {
+                        adapter = new EventsRecyclerViewAdapter(events);
                         recyclerView.setAdapter(adapter);
-                        isAdapterSet=true;
+                        isAdapterSet = true;
                     }
 
                     adapter.notifyDataSetChanged();
 
-                    int mPage=curPage;
-                    Log.d("TAG",response.body().getTotalElements() + " pages total");
-                    if ( mPage<response.body().getTotalElements()/curSize){
+                    int mPage = curPage;
+                    Log.d("TAG", response.body().getTotalElements() + " elements total");
+                    if (mPage < response.body().getTotalElements() / curSize) {
                         mPage++;
-                        getEvent(mPage,curSize);
+                        getEvent(mPage, curSize);
 
                     }
-
+                }
                 }
 
             @Override
