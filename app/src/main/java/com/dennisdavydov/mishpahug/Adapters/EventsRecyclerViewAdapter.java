@@ -45,7 +45,6 @@ public class EventsRecyclerViewAdapter extends
             eventImage=itemView.findViewById(R.id.familyImage);
             cardView = itemView.findViewById(R.id.cardview_id);
 
-
         }
     }
 ///////////////////////////////////////////////////////////////////////////////////////

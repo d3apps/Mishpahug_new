@@ -24,7 +24,7 @@ import com.dennisdavydov.mishpahug.fragments.RegFragment;
 
 public class MainPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
         CalendarFragment.OnFragmentInteractionListener,EventListFragment.OnFragmentInteractionListener,
-        FiltersFragment.OnFragmentInteractionListener
+        FiltersFragment.OnFragmentInteractionListener,EventInfoFragment.OnFragmentInteractionListener
 {
 
     FragmentManager fragmentManager;
@@ -55,7 +55,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
             case 3: {
                 eventInfoFragment = new EventInfoFragment();
                 runFragment(eventInfoFragment);
-            }
+            }break;
         }
 
         drawerLayout =findViewById(R.id.drawer_layout);

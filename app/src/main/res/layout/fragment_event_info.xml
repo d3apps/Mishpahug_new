@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/mhDarkColor"
-        android:src="@mipmap/shabbat_event" />
+        android:src="@mipmap/arni" />
 
     <View
         android:id="@+id/eventInfoLayout"
