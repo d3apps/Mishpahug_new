@@ -64,7 +64,7 @@ public class EventsRecyclerViewAdapter extends
         viewHolder.date.setText(currentEvent.getDate());
         try {
             Glide.with(viewHolder.itemView.getContext())
-                    .load(currentEvent.getOwner().getPictureLink().get(0)).apply(new RequestOptions())
+                    .load(currentEvent.getOwner().getPictureLink().get(2)).apply(new RequestOptions())
                     .into(viewHolder.eventImage);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
@@ -74,7 +74,7 @@ public class EventsRecyclerViewAdapter extends
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),
-                        "Clicked " + position + " position", Toast.LENGTH_LONG).show();
+                        "Clicked " + position + " position", Toast.LENGTH_SHORT).show();
             }
         });
 
