@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.RegFragment"
-    android:background="@color/mhDarkColor"
+    android:background="@drawable/bg_grad"
     android:id="@+id/regFragConstrLayout">
 
     <ImageView

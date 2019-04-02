@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
+import com.dennisdavydov.mishpahug.fragments.EventInfoPageFragment;
 import com.dennisdavydov.mishpahug.fragments.EventListFragment;
 import com.dennisdavydov.mishpahug.fragments.FiltersFragment;
 import com.dennisdavydov.mishpahug.fragments.RegFragment;
@@ -27,7 +28,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
 {
 
     FragmentManager fragmentManager;
-    Fragment calendarFragment,eventListFragment,filtersFragment;
+    Fragment calendarFragment,eventListFragment,filtersFragment, eventInfoPageFragment;
     FragmentTransaction transaction;
     DrawerLayout drawerLayout;
 
@@ -44,22 +45,17 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
 
         switch (intentFragment){
             case 1:{
-                fragmentManager = getSupportFragmentManager();
-                transaction = fragmentManager.beginTransaction();
                 eventListFragment = new EventListFragment();
-                transaction.add(R.id.fragment_container,eventListFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                runFragment(eventListFragment);
             } break;
             case 2:{
-                fragmentManager = getSupportFragmentManager();
-                transaction = fragmentManager.beginTransaction();
                 filtersFragment = new FiltersFragment();
-                transaction.add(R.id.fragment_container,filtersFragment);
-                transaction.commit();
-
-
+                runFragment(filtersFragment);
             }break;
+            case 3: {
+                eventInfoPageFragment = new EventInfoPageFragment();
+                runFragment(eventInfoPageFragment);
+            }
         }
 
         drawerLayout =findViewById(R.id.drawer_layout);
@@ -72,7 +68,15 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
         navigationView.setNavigationItemSelectedListener(this);
 
     }
-
+////////////////////////////////////////////////////////////////////////
+    private void runFragment(Fragment fragmentName) {
+        fragmentManager = getSupportFragmentManager();
+        transaction = fragmentManager.beginTransaction();
+        transaction.add(R.id.fragment_container,fragmentName);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+////////////////////////////////////////////////////////////////////////////
     @Override
     public void onBackPressed() {
 
@@ -90,23 +94,12 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
     public boolean onNavigationItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.event_list:
-                fragmentManager = getSupportFragmentManager();
-                transaction = fragmentManager.beginTransaction();
                 eventListFragment = new EventListFragment();
-                transaction.add(R.id.fragment_container,eventListFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-
-
-
+                runFragment(eventListFragment);
                 break;
             case R.id.calendar:
-                fragmentManager = getSupportFragmentManager();
-                transaction = fragmentManager.beginTransaction();
                 calendarFragment = new CalendarFragment();
-                transaction.add(R.id.fragment_container,calendarFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                runFragment(calendarFragment);
                 break;
 
         }

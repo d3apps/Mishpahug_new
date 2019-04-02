@@ -75,6 +75,7 @@ public class EventsRecyclerViewAdapter extends
             public void onClick(View v) {
                 Toast.makeText(v.getContext(),
                         "Clicked " + position + " position", Toast.LENGTH_SHORT).show();
+
             }
         });
 
