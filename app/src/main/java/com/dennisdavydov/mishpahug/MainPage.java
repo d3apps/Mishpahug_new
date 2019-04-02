@@ -17,7 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
-import com.dennisdavydov.mishpahug.fragments.EventInfoPageFragment;
+import com.dennisdavydov.mishpahug.fragments.EventInfoFragment;
 import com.dennisdavydov.mishpahug.fragments.EventListFragment;
 import com.dennisdavydov.mishpahug.fragments.FiltersFragment;
 import com.dennisdavydov.mishpahug.fragments.RegFragment;
@@ -28,7 +28,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
 {
 
     FragmentManager fragmentManager;
-    Fragment calendarFragment,eventListFragment,filtersFragment, eventInfoPageFragment;
+    Fragment calendarFragment,eventListFragment,filtersFragment, eventInfoFragment;
     FragmentTransaction transaction;
     DrawerLayout drawerLayout;
 
@@ -53,8 +53,8 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 runFragment(filtersFragment);
             }break;
             case 3: {
-                eventInfoPageFragment = new EventInfoPageFragment();
-                runFragment(eventInfoPageFragment);
+                eventInfoFragment = new EventInfoFragment();
+                runFragment(eventInfoFragment);
             }
         }
 
