@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.support.v4.view.GravityCompat;
 
 import com.dennisdavydov.mishpahug.R;
 
@@ -111,4 +112,8 @@ public class EventInfoFragment extends Fragment {
         joinToFamily=view.findViewById(R.id.joinFamilyBtn);
 
     }
+
+
+
+
 }
