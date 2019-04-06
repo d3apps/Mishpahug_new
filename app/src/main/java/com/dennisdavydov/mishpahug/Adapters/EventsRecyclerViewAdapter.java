@@ -81,6 +81,7 @@ public class EventsRecyclerViewAdapter extends
                         "Clicked " + position + " position", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(v.getContext(), MainPage.class);
                 i.putExtra("frgToLoad",3);
+                i.putExtra("position",position);
                 v.getContext().startActivity(i);
             }
         });

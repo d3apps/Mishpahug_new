@@ -2,11 +2,21 @@ package com.dennisdavydov.mishpahug.models;
 
 
 
+import android.arch.persistence.room.Embedded;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+
 import java.util.List;
+
+import com.dennisdavydov.mishpahug.Adapters.DBConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 ///////////////////////////////////////////////////////////////////////////////////////////////
+@Entity
+@TypeConverters({DBConverter.class})
 public class Event {
+    @PrimaryKey
     @SerializedName("eventId")
     @Expose
     private Integer eventId;
@@ -30,6 +40,7 @@ public class Event {
     private Integer duration;
     @SerializedName("address")
     @Expose
+    @Embedded(prefix = "address")
     private Address address;
     @SerializedName("food")
     @Expose
@@ -39,6 +50,7 @@ public class Event {
     private String description;
     @SerializedName("owner")
     @Expose
+    @Embedded(prefix = "owner")
     private Owner owner;
 
     public Integer getEventId() {

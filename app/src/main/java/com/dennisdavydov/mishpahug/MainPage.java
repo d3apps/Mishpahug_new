@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.dennisdavydov.mishpahug.fragments.CalendarFragment;
@@ -42,6 +43,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
         setSupportActionBar(toolbar);
 
         int intentFragment = getIntent().getExtras().getInt("frgToLoad");
+        int intentPosition=getIntent().getExtras().getInt("position");
 
         switch (intentFragment){
             case 1:{
@@ -54,6 +56,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
             }break;
             case 3: {
                 eventInfoFragment = new EventInfoFragment();
+                Log.d("TAG","got position"+intentPosition);
                 runFragment(eventInfoFragment);
             }break;
         }

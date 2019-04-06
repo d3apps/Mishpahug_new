@@ -2,6 +2,8 @@ package com.dennisdavydov.mishpahug;
 
 
 
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button nextBtn, loginRegBtn;
     TextView main_screen_header, main_screen_text, main_screen_text2;
+    AppDatabase myAppDatabase;
     RegFragment regFragment;
 
     FragmentManager manager;
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        myAppDatabase= Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"eventDB").build();
 
         nextBtn = findViewById(R.id.nextBtn);
         nextBtn.setOnClickListener(this);

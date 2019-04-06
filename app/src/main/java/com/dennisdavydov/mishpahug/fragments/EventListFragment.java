@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import com.dennisdavydov.mishpahug.Adapters.EventsRecyclerViewAdapter;
 import com.dennisdavydov.mishpahug.App;
+import com.dennisdavydov.mishpahug.AppDatabase;
+import com.dennisdavydov.mishpahug.DAO.EventDao;
 import com.dennisdavydov.mishpahug.MainPage;
 import com.dennisdavydov.mishpahug.R;
 import com.dennisdavydov.mishpahug.models.Event;
@@ -34,10 +36,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-public class EventListFragment extends Fragment   implements View.OnClickListener{
+public class EventListFragment extends Fragment   implements View.OnClickListener , EventDao {
 
     boolean isAdapterSet=false;
     Button filtersBtn;
+    AppDatabase myAppDatabase;
+    EventDao eventDao;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -122,6 +126,33 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
         }
     }
 
+    @Override
+    public List<Event> getAll() {
+        return null;
+    }
+
+    @Override
+    public Event getById(int id) {
+        return null;
+    }
+
+
+    @Override
+    public void update(Event event) {
+
+    }
+
+    @Override
+    public void delete(Event event) {
+
+    }
+
+    @Override
+    public void insert(Event event){
+        myAppDatabase.eventDao().insert(event);
+
+    }
+
     //////////////////////////////////////////////////////////////////////////////////
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
@@ -138,8 +169,7 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
         errorTextView = view.findViewById(R.id.errorTextWiew);
         filtersBtn=view.findViewById(R.id.filtersBtn);
         filtersBtn.setOnClickListener(this);
-        //LinearLayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
-        //recyclerView.setLayoutManager(mLayoutManager);
+
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerView.setLayoutManager(mLayoutManager);
@@ -149,19 +179,14 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
         recyclerView.addItemDecoration(mDecoration);
         events=new ArrayList<>();
 
-
         getEvent(0,2);
-
     }
-
-
     //////////////////////////////////////////////////////////////////////////
-
     private void getEvent(final int curPage, final int curSize){
         App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override
             public void onResponse(Call<EventsDescription> call, Response<EventsDescription> response) {
-                if (response.isSuccessful() && response.body() !=null) {
+                if (response.isSuccessful() && response.body() != null) {
 
                     events.addAll(response.body().getEvents());
 
@@ -179,21 +204,15 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
                         mPage++;
                         getEvent(mPage, curSize);
 
-                    }
+                    } //else for (int i = 0; i < events.size(); i++) {
+                        //insert(events.get(i));
+                    //}
                 }
-                }
-
+            }
             @Override
             public void onFailure(Call<EventsDescription> call, Throwable t) {
                 t.fillInStackTrace();
-
             }
-
-
         });
-
     }
-
-
 }
-///
