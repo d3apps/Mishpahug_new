@@ -181,7 +181,7 @@ public class EventListFragment extends Fragment   implements View.OnClickListene
 
         getEvent(0,2);
     }
-    //////////////////////////////////////////////////////////////////////////
+     //////////////////////////////////////////////////////////////////////////
     private void getEvent(final int curPage, final int curSize){
         App.getProvider().getEvent(curPage,curSize).enqueue(new Callback<EventsDescription>() {
             @Override

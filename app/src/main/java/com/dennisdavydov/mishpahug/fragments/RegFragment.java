@@ -1,22 +1,28 @@
 package com.dennisdavydov.mishpahug.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.dennisdavydov.mishpahug.R;
 import com.dennisdavydov.mishpahug.singletons.SingletonFonts;
+
+import java.nio.charset.StandardCharsets;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,13 +32,20 @@ import com.dennisdavydov.mishpahug.singletons.SingletonFonts;
  * Use the {@link RegFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class RegFragment extends Fragment {
+public class RegFragment extends Fragment implements View.OnClickListener {
 
     ImageView avatarImage;
     TextInputLayout tilFirstName,tilLastName,tilEmail,tilPhone,tilPassword;
     EditText editFirstName,editLastName,editEmail,editPhone,editPassword;
-    RadioGroup radioGroup;
     RadioButton familyRB,guestRB;
+    Button regBtn;
+
+    public static final String SHARED_PREFS = "shared_prefs";
+    public static final String FIRST_NAME = "first_name";
+    public static final String LAST_NAME = "last_name";
+    public static final String EMAIL = "email";
+    public static final String PHONE = "phone";
+    public static final String TOKEN = "token";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -108,6 +121,13 @@ public class RegFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.regBtn){
+
+        }
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -143,7 +163,35 @@ public class RegFragment extends Fragment {
         tilPassword = view.findViewById(R.id.tilPassword);
         tilPassword.setTypeface(SingletonFonts.getInstance(view.getContext()).getFont3());
 
+        regBtn = view.findViewById(R.id.regBtn);
+        regBtn.setOnClickListener(this);
 
+        editFirstName = view.findViewById(R.id.editFirstName);
+        editLastName = view.findViewById(R.id.editLastName);
+        editEmail = view.findViewById(R.id.editEmail);
+        editPhone = view.findViewById(R.id.editPhone);
+        editPassword = view.findViewById(R.id.editPassword);
 
+    }
+
+    public void saveUserPrefs(){
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(FIRST_NAME,String.valueOf(editFirstName.getText()));
+        editor.putString(LAST_NAME,String.valueOf(editLastName.getText()));
+        editor.putString(EMAIL,String.valueOf(editEmail.getText()));
+        editor.putString(PHONE,String.valueOf(editPhone.getText()));
+        editor.putString(TOKEN,encodeToken());
+        editor.apply();
+
+        Toast.makeText(getContext(),"Saved user prefs",Toast.LENGTH_SHORT).show();
+    }
+
+    private String encodeToken() {
+            String token = String.valueOf(editEmail.getText());
+            token = token.concat(String.valueOf(editPassword.getText()));
+            byte[] data = token.getBytes(StandardCharsets.UTF_8);
+            String encodedToken = Base64.encodeToString(data, Base64.DEFAULT);
+        return encodedToken;
     }
 }

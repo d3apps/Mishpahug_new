@@ -79,7 +79,8 @@
             android:layout_height="wrap_content"
             android:text="@string/family"
             android:textColor="@color/mhLightColor"
-            android:buttonTint="@color/mhLightColor"/>
+            android:buttonTint="@color/mhLightColor"
+            />
         <RadioButton
             android:id="@+id/guestRB"
             android:layout_width="wrap_content"

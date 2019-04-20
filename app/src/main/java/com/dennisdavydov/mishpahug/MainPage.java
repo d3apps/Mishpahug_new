@@ -55,6 +55,7 @@ public class MainPage extends AppCompatActivity implements NavigationView.OnNavi
                 runFragment(filtersFragment);
             }break;
             case 3: {
+
                 eventInfoFragment = new EventInfoFragment();
                 Log.d("TAG","got position"+intentPosition);
                 runFragment(eventInfoFragment);

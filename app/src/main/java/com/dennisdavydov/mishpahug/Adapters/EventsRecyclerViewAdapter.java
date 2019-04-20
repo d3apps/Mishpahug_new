@@ -68,7 +68,7 @@ public class EventsRecyclerViewAdapter extends
         viewHolder.date.setText(currentEvent.getDate());
         try {
             Glide.with(viewHolder.itemView.getContext())
-                    .load(currentEvent.getOwner().getPictureLink().get(2)).apply(new RequestOptions())
+                    .load(currentEvent.getOwner().getPictureLink().get(1)).apply(new RequestOptions())
                     .into(viewHolder.eventImage);
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
