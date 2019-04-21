@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         main_screen_text2 = findViewById(R.id.main_screen_text2);
         main_screen_text2.setTypeface(SingletonFonts.getInstance(this).getFont4());
 
-        innerConstraintMainActivity
-                = findViewById(R.id.innerConstraintMainActivity);
+        innerConstraintMainActivity = findViewById(R.id.innerConstraintMainActivity);
+
 
     }
 

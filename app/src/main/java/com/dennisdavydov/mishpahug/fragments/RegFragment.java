@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -125,6 +126,47 @@ public class RegFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.regBtn){
 
+            String firstName = editFirstName.getText().toString().trim();
+            String lastName = editLastName.getText().toString().trim();
+            String eMail = editEmail.getText().toString().trim();
+            String phone = editPhone.getText().toString().trim();
+            String password = editPassword.getText().toString().trim();
+
+            if(firstName.isEmpty()){
+                editFirstName.setError(getResources().getString(R.string.errFirstName));
+                editFirstName.requestFocus();
+                return;
+            }
+            if (lastName.isEmpty()){
+                editLastName.setError(getResources().getString(R.string.errLastName));
+                editLastName.requestFocus();
+                return;
+            }
+            if (eMail.isEmpty()){
+                editEmail.setError(getResources().getString(R.string.errEmail));
+                editEmail.requestFocus();
+                return;
+            }
+            if (!Patterns.EMAIL_ADDRESS.matcher(eMail).matches()){
+                editEmail.setError(getResources().getString(R.string.errValidationEmail));
+                editEmail.requestFocus();
+                return;
+            }
+            if (phone.isEmpty()){
+                editPhone.setError(getResources().getString(R.string.errPhone));
+                editPhone.requestFocus();
+                return;
+            }
+            if (password.isEmpty()){
+                editPassword.setError(getResources().getString(R.string.errPassword));
+                editPassword.requestFocus();
+                return;
+            }
+            if (password.length() < 6){
+                editPassword.setError(getResources().getString(R.string.errValidationPassword));
+                editPassword.requestFocus();
+                return;
+            }
         }
     }
 
@@ -177,10 +219,10 @@ public class RegFragment extends Fragment implements View.OnClickListener {
     public void saveUserPrefs(){
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(SHARED_PREFS,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(FIRST_NAME,String.valueOf(editFirstName.getText()));
-        editor.putString(LAST_NAME,String.valueOf(editLastName.getText()));
-        editor.putString(EMAIL,String.valueOf(editEmail.getText()));
-        editor.putString(PHONE,String.valueOf(editPhone.getText()));
+        editor.putString(FIRST_NAME,editFirstName.getText().toString().trim());
+        editor.putString(LAST_NAME,editLastName.getText().toString().trim());
+        editor.putString(EMAIL,editEmail.getText().toString().trim());
+        editor.putString(PHONE,editPhone.getText().toString().trim());
         editor.putString(TOKEN,encodeToken());
         editor.apply();
 
@@ -188,8 +230,8 @@ public class RegFragment extends Fragment implements View.OnClickListener {
     }
 
     private String encodeToken() {
-            String token = String.valueOf(editEmail.getText());
-            token = token.concat(String.valueOf(editPassword.getText()));
+            String token = editEmail.getText().toString().trim();
+            token = token.concat(editPassword.getText().toString().trim());
             byte[] data = token.getBytes(StandardCharsets.UTF_8);
             String encodedToken = Base64.encodeToString(data, Base64.DEFAULT);
         return encodedToken;

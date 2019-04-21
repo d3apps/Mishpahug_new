@@ -24,6 +24,15 @@
     <string name="password">Enter your password here</string>
     <string name="register">Register</string>
 
+    <string name="errFirstName">First name is required!</string>
+    <string name="errLastName">Last name is required!</string>
+    <string name="errEmail">E-Mail is required!</string>
+    <string name="errPhone">Phone number name is required!</string>
+    <string name="errPassword">Password is required!</string>
+    <string name="errValidationEmail">Enter a valid E-Mail please!</string>
+    <string name="errValidationPassword">Password should be at least 6 characters long!</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="serverError">Server Error! Please try again later!</string>
